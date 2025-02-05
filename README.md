@@ -4,6 +4,59 @@
 ![2025-02-05_14-09-07](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)
 ![2025-02-05_14-09-25](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)
 
+# Simple Browser
+
+<div align="center">
+  <img src="screenshots/logo.png" alt="Simple Browser Logo" width="150"/>
+  
+  <h3>A lightweight, minimalistic browser built with Electron</h3>
+
+  <p>
+    <a href="#features">Features</a> •
+    <a href="#installation">Installation</a> •
+    <a href="#screenshots">Screenshots</a> •
+    <a href="#roadmap">Roadmap</a>
+  </p>
+</div>
+
+## ✨ Modern Interface
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="![2025-02-05_14-09-07](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)" alt="Light Theme" />
+      <p align="center"><em>Clean Light Theme</em></p>
+    </td>
+    <td width="50%">
+      <img src="![2025-02-05_14-09-25](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)" />
+      <p align="center"><em>Elegant Dark Theme</em></p>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <em>Seamless theme switching with customizable colors and modern UI elements</em>
+</p>
+
+## 🎯 Key Features
+
+<table>
+  <tr>
+    <td width="33%">
+      <h3 align="center">🎨 Theme Customization</h3>
+      <p align="center">Personalize every aspect of your browser with a powerful theme engine</p>
+    </td>
+    <td width="33%">
+      <h3 align="center">📱 Responsive Design</h3>
+      <p align="center">Perfect layout on any screen size with adaptive interface</p>
+    </td>
+    <td width="33%">
+      <h3 align="center">🚀 Fast Performance</h3>
+      <p align="center">Lightning-fast page loading and smooth animations</p>
+    </td>
+  </tr>
+</table>
+
 
 
 
