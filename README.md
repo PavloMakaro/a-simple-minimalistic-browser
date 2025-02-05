@@ -1,4 +1,4 @@
-
+# Simple Browser
 
 
 ![2025-02-05_14-09-07](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)
