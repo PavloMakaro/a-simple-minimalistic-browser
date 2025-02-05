@@ -1,14 +1,6 @@
 # Simple Browser
 
-
-![2025-02-05_14-09-07](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)
-![2025-02-05_14-09-25](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)
-
-# Simple Browser
-
 <div align="center">
-  <img src="screenshots/logo.png" alt="Simple Browser Logo" width="150"/>
-  
   <h3>A lightweight, minimalistic browser built with Electron</h3>
 
   <p>
@@ -18,52 +10,6 @@
     <a href="#roadmap">Roadmap</a>
   </p>
 </div>
-
-## ✨ Modern Interface
-
-<table>
-  <tr>
-    <td width="50%">
-      <img src="![2025-02-05_14-09-07](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)" alt="Light Theme" />
-      <p align="center"><em>Clean Light Theme</em></p>
-    </td>
-    <td width="50%">
-      <img src="![2025-02-05_14-09-25](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)" />
-      <p align="center"><em>Elegant Dark Theme</em></p>
-    </td>
-  </tr>
-</table>
-
-<p align="center">
-  <em>Seamless theme switching with customizable colors and modern UI elements</em>
-</p>
-
-## 🎯 Key Features
-
-<table>
-  <tr>
-    <td width="33%">
-      <h3 align="center">🎨 Theme Customization</h3>
-      <p align="center">Personalize every aspect of your browser with a powerful theme engine</p>
-    </td>
-    <td width="33%">
-      <h3 align="center">📱 Responsive Design</h3>
-      <p align="center">Perfect layout on any screen size with adaptive interface</p>
-    </td>
-    <td width="33%">
-      <h3 align="center">🚀 Fast Performance</h3>
-      <p align="center">Lightning-fast page loading and smooth animations</p>
-    </td>
-  </tr>
-</table>
-
-
-
-
-
-# Simple Browser
-
-A lightweight, minimalistic browser built with Electron that focuses on productivity and clean user experience.
 
 ## 🚀 Current Features
 
@@ -105,14 +51,13 @@ A lightweight, minimalistic browser built with Electron that focuses on producti
 - 🔄 Similar Content Discovery: Find related articles
 - 📱 Responsive Layouts: Optimal viewing on any device
 
-### Extensions Support
-- 🧩 Custom Extensions API
-- 🎨 Theme Extensions
-- 🛠️ Developer Tools Extensions
-- 🔐 Security Extensions
+## 🎨 Themes
 
-## 🚀 Quick Start
+### Light Theme
+![Light Theme](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)
 
+### Dark Theme
+![Dark Theme](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)
 
 ## ⌨️ Keyboard Shortcuts
 | Shortcut | Action |
@@ -145,6 +90,8 @@ A lightweight, minimalistic browser built with Electron that focuses on producti
 - Cloud sync
 - Mobile companion app
 - Security enhancements
+
+## 🚀 Quick Start
 
 ## 🤝 Contributing
 We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
