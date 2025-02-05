@@ -7,11 +7,11 @@
   <h2>✨ Themes & Customization</h2>
 </div>
 
-### Light Theme
+### Dark Theme
 ![Light Theme](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)
 *Clean and minimalistic light theme for comfortable browsing*
 
-### Dark Theme
+### Light Theme
 ![Dark Theme](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)
 *Elegant dark theme for night browsing and reduced eye strain*
 
