@@ -1,8 +1,10 @@
 # Simple Browser
 
 A lightweight, minimalistic browser built with Electron.
+![2025-02-05_14-09-07](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)
+![2025-02-05_14-09-25](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)
 
-![Simple Browser Screenshot](screenshots/main.png)
+
 
 ## Features
 - 🎯 Clean, minimalistic interface
