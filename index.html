@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Browser</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+</head>
+<body>
+    <div class="browser-window">
+        <div class="titlebar">
+            <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+            </div>
+            <div class="navigation-controls">
+                <button class="nav-button reload-btn">↻</button>
+                <button class="nav-button home-btn">
+                    <svg class="home-icon" width="16" height="16" viewBox="0 0 24 24">
+                        <path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="tabs">
+                <div class="tab active">
+                    <span class="tab-title">New Tab</span>
+                    <span class="tab-close">×</span>
+                </div>
+                <button class="add-tab">+</button>
+            </div>
+            <div class="action-buttons">
+                <div class="url-preview">
+                    <button class="action-button share-btn">
+                        <svg class="link-icon" width="16" height="16" viewBox="0 0 24 24">
+                            <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                    <div class="url-display"></div>
+                </div>
+                <button class="action-button bookmark-btn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                </button>
+                <button class="action-button theme-btn">A</button>
+                <button class="action-button settings-btn">≡</button>
+            </div>
+        </div>
+        <div class="browser-content">
+            <webview id="webview" src="https://www.google.com" autosize="on"></webview>
+        </div>
+    </div>
+
+    <!-- Обновляем меню настроек -->
+    <div class="settings-menu">
+        <div class="menu-header">
+            <div class="user-info">
+                <div class="user-avatar">S</div>
+                <span class="browser-name">Simple Browser</span>
+                <span class="browser-desc">A lightweight, minimalistic browser</span>
+                <div class="version-info">
+                    <span class="version">v1.1.2</span>
+                    <span class="build">Build 2024.03</span>
+                </div>
+            </div>
+        </div>
+        <div class="menu-content">
+            <div class="menu-section">
+                <button class="menu-item" data-action="incognito">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                    <span>Режим Инкогнито</span>
+                </button>
+                <button class="menu-item" data-action="history">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+                    </svg>
+                    <span>История</span>
+                    <span class="menu-arrow">›</span>
+                </button>
+                <button class="menu-item" data-action="bookmarks">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                    <span>Закладки</span>
+                    <span class="menu-arrow">›</span>
+                </button>
+                <button class="menu-item" data-action="downloads">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    <span>Загрузки</span>
+                </button>
+                <button class="menu-item" data-action="passwords">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                    </svg>
+                    <span>Пароли и данные</span>
+                </button>
+                <button class="menu-item" data-action="extensions">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/>
+                    </svg>
+                    <span>Расширения</span>
+                    <span class="menu-arrow">›</span>
+                </button>
+                </div>
+            <div class="menu-divider"></div>
+            <div class="menu-section">
+                <button class="menu-item" data-action="help">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                    </svg>
+                    <span>Помощь</span>
+                    <span class="menu-arrow">›</span>
+                </button>
+                <button class="menu-item" data-action="settings">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+                    </svg>
+                    <span>Настройки</span>
+                    <span class="menu-arrow">›</span>
+                </button>
+                </div>
+            <div class="menu-divider"></div>
+            <div class="menu-section about-section">
+                <div class="about-browser">
+                    <p class="about-text">
+                        Simple Browser is a clean and fast browser focused on minimalism and usability.
+                    </p>
+                    <a href="https://t.me/kalliyanchik" class="support-link" target="_blank">
+                        <svg class="menu-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 16.5v-7c0-.28.22-.5.5-.5h1c.28 0 .5.22.5.5v7c0 .28-.22.5-.5.5h-1c-.28 0-.5-.22-.5-.5zm1-10.5c-.83 0-1.5-.67-1.5-1.5S11.17 5 12 5s1.5.67 1.5 1.5S12.83 8 12 8z"/>
+                        </svg>
+                        <span>Report bugs & suggestions</span>
+                    </a>
+                </div>
+            </div>
+            <div class="menu-section">
+                <button class="menu-item" data-action="exit">
+                    <svg class="menu-icon" viewBox="0 0 24 24">
+                        <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                    <span>Закрыть браузер</span>
+                    <span class="shortcut">Ctrl+Shift+Q</span>
+                </button>
+            </div>
+                    </div>
+                </div>
+
+    <div class="theme-menu" style="display: none;">
+        <div class="theme-header">
+            <h2>Оформление</h2>
+            <button class="close-theme">×</button>
+        </div>
+        <div class="theme-options">
+            <div class="theme-option light-theme">
+                <div class="theme-preview">
+                    <div class="preview-titlebar"></div>
+                    <div class="preview-content"></div>
+                </div>
+                <span>Светлая тема</span>
+            </div>
+            <div class="theme-option dark-theme">
+                <div class="theme-preview">
+                    <div class="preview-titlebar"></div>
+                    <div class="preview-content"></div>
+                </div>
+                <span>Тёмная тема</span>
+            </div>
+        </div>
+        <div class="font-settings">
+            <h3>Шрифт</h3>
+            <div class="font-size-controls">
+                    <button class="zoom-btn" data-zoom="-">−</button>
+                    <span class="zoom-value">100%</span>
+                    <button class="zoom-btn" data-zoom="+">+</button>
+                </div>
+                <select class="font-family-select">
+                    <option value="default">По умолчанию</option>
+                    <option value="arial">Arial</option>
+                    <option value="times">Times New Roman</option>
+                    <option value="georgia">Georgia</option>
+                </select>
+        </div>
+    </div>
+
+    <div class="account-menu" style="display: none;">
+        <div class="account-header">
+            <h2>Аккаунт</h2>
+            <button class="close-account">×</button>
+        </div>
+        <div class="account-content">
+            <div id="not-signed-in" style="display: block;">
+                <p>Войдите для синхронизации закладок, истории и других данных</p>
+                <button class="google-signin-btn">
+                    Войти в аккаунт Google
+                </button>
+            </div>
+            <div id="signed-in" style="display: none;">
+                <div class="account-info">
+                    <img class="account-avatar" src="" alt="Avatar">
+                    <div class="account-details">
+                        <span class="account-name"></span>
+                        <span class="account-email"></span>
+                    </div>
+                </div>
+                <div class="sync-options">
+                    <h3>Синхронизация</h3>
+                    <label>
+                        <input type="checkbox" id="sync-bookmarks" checked>
+                        Закладки
+                    </label>
+                    <label>
+                        <input type="checkbox" id="sync-history" checked>
+                        История
+                    </label>
+                    <label>
+                        <input type="checkbox" id="sync-passwords" checked>
+                        Пароли
+                    </label>
+                    <label>
+                        <input type="checkbox" id="sync-settings" checked>
+                        Настройки
+                    </label>
+                </div>
+                <button class="signout-btn">Выйти</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="history-menu" style="display: none;">
+        <div class="history-header">
+            <h2>История</h2>
+            <div class="history-actions">
+                <button class="clear-history">Очистить историю</button>
+                <button class="close-history">×</button>
+            </div>
+        </div>
+        <div class="history-search">
+            <input type="text" placeholder="Поиск по истории">
+        </div>
+        <div class="history-content">
+            <div class="history-list">
+                <!-- История будет добавляться динамически -->
+            </div>
+        </div>
+    </div>
+
+    <div class="extensions-menu" style="display: none;">
+        <div class="extensions-header">
+            <h2>Расширения</h2>
+            <button class="close-extensions">×</button>
+        </div>
+        <div class="extensions-content">
+            <div class="extensions-actions">
+                <button class="load-extension">Загрузить расширение</button>
+                <button class="chrome-store">Chrome Web Store</button>
+            </div>
+            <div class="extensions-list">
+                <!-- Список расширений будет добавляться динамически -->
+            </div>
+        </div>
+    </div>
+
+    <div class="ai-chat-window" style="display: none;">
+        <div class="ai-chat-header">
+            <h2>AI Чат</h2>
+            <button class="close-ai-chat">×</button>
+        </div>
+        <div class="ai-chat-messages"></div>
+        <div class="ai-chat-input">
+            <textarea placeholder="Введите сообщение..."></textarea>
+            <button class="send-message">Отправить</button>
+        </div>
+    </div>
+
+    <!-- Добавим разметку для избранных сайтов на главной странице -->
+    <div class="favorites-overlay" style="display: none;">
+        <div class="favorites-grid">
+            <!-- Слоты для избранных сайтов -->
+            <div class="favorite-slot">
+                <div class="favorite-add">+</div>
+            </div>
+            <!-- Остальные слоты будут добавляться динамически -->
+        </div>
+    </div>
+
+    <!-- Добавляем новое меню закладок -->
+    <div class="bookmarks-menu">
+        <div class="bookmarks-list">
+            <!-- Добавляем соту для добавления в начало списка -->
+            <div class="quick-add-bookmark" title="Добавить текущий сайт"></div>
+            <!-- Закладки будут добавляться динамически -->
+        </div>
+    </div>
+
+    <!-- Welcome Modal -->
+    <div class="welcome-modal">
+        <div class="modal-content">
+            <button class="modal-close">×</button>
+            <div class="modal-header">
+                <div class="browser-logo">S</div>
+                <h2>Simple Browser <span class="version-badge">Beta 0.1.1</span></h2>
+            </div>
+            <div class="modal-body">
+                <div class="info-section">
+                    <h3>Welcome to Simple Browser</h3>
+                    <p>A lightweight, minimalist browser focused on simplicity and usability.</p>
+                </div>
+                <div class="info-section warning">
+                    <h3>Beta Version Notice</h3>
+                    <p>This is a beta version. You may encounter:</p>
+                    <ul>
+                        <li>Display issues on some websites</li>
+                        <li>Unstable PiP mode</li>
+                        <li>Theme settings reset</li>
+                    </ul>
+                </div>
+                <div class="support-section">
+                    <a href="https://t.me/kalliyanchik" class="support-button" target="_blank">
+                        <svg class="telegram-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.2-.04-.28-.02-.12.02-1.98 1.26-5.61 3.71-.53.36-1.01.54-1.44.53-.47-.01-1.38-.27-2.06-.49-.83-.27-1.49-.42-1.43-.89.03-.25.38-.51 1.05-.78 4.12-1.79 6.87-2.97 8.26-3.54 3.93-1.62 4.75-1.9 5.27-1.91.12 0 .38.03.55.17.14.12.18.28.2.45-.02.05-.02.31-.02.31z"/>
+                        </svg>
+                        Get Support
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <label class="dont-show-again">
+                    <input type="checkbox" id="dontShowAgain">
+                    <span>Don't show again</span>
+                </label>
+                <button class="start-button">Get Started</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.querySelector('.welcome-modal');
+            const startButton = modal.querySelector('.start-button');
+            const closeButton = modal.querySelector('.modal-close');
+
+            // В бета-версии всегда показываем окно
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 1000);
+
+            // Обработчик кнопки закрытия
+            closeButton.addEventListener('click', () => {
+                modal.classList.remove('show');
+            });
+
+            // Обработчик кнопки Get Started
+            startButton.addEventListener('click', () => {
+                modal.classList.remove('show');
+            });
+
+            // Закрытие по клику вне окна
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                }
+            });
+
+            // Убираем чекбокс "Don't show again" для бета-версии
+            const dontShowLabel = modal.querySelector('.dont-show-again');
+            if (dontShowLabel) {
+                dontShowLabel.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script src="src/js/ai_manager.js"></script>
+    <script src="src/js/browser.js"></script>
+</body>
+</html> 

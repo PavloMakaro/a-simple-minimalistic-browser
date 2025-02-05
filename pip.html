@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .pip-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            background: var(--background-color, #fff);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .pip-header {
+            height: 24px;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8px;
+            -webkit-app-region: drag;
+        }
+
+        .pip-controls {
+            display: flex;
+            gap: 8px;
+            -webkit-app-region: no-drag;
+        }
+
+        .pip-controls button {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0.7;
+            transition: all 0.2s;
+            font-size: 16px;
+        }
+
+        .pip-controls button:hover {
+            opacity: 1;
+        }
+
+        webview {
+            flex: 1;
+            width: 100%;
+            height: calc(100% - 24px);
+        }
+    </style>
+</head>
+<body>
+    <div class="pip-container">
+        <div class="pip-header">
+            <div class="pip-title"></div>
+            <div class="pip-controls">
+                <button class="pip-minimize">−</button>
+                <button class="pip-maximize">□</button>
+                <button class="pip-close">×</button>
+            </div>
+        </div>
+        <webview autosize="on"></webview>
+    </div>
+
+    <script>
+        const { ipcRenderer } = require('electron');
+        const webview = document.querySelector('webview');
+        const win = require('@electron/remote').getCurrentWindow();
+
+        // Обработчики кнопок
+        document.querySelector('.pip-minimize').onclick = () => win.minimize();
+        document.querySelector('.pip-maximize').onclick = () => {
+            win.isMaximized() ? win.unmaximize() : win.maximize();
+        };
+        document.querySelector('.pip-close').onclick = () => win.close();
+
+        // Загрузка видео
+        ipcRenderer.on('load-video', (event, url) => {
+            webview.src = url;
+        });
+
+        // Инжектим скрипт для автовоспроизведения
+        webview.addEventListener('dom-ready', () => {
+            webview.executeJavaScript(`
+                const video = document.querySelector('video');
+                if (video) {
+                    video.style.visibility = 'visible';
+                    video.play();
+                }
+            `);
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,38 @@
+{
+  "name": "simple-browser",
+  "version": "0.1.1",
+  "description": "A lightweight, minimalistic browser built with Electron",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win"
+  },
+  "build": {
+    "appId": "com.simple.browser",
+    "productName": "Simple Browser",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!node_modules/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    }
+  },
+  "author": "Simple Browser Team",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.1.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.1"
+  }
+}

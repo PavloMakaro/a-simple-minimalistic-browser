@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+env/
+venv/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Assets that will be generated
+assets/icon.png
+assets/favicon.png 
