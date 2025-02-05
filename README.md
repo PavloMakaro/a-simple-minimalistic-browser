@@ -2,14 +2,15 @@
 
 <div align="center">
   <h3>A lightweight, minimalistic browser built with Electron</h3>
-
-  <p>
-    <a href="#features">Features</a> •
-    <a href="#installation">Installation</a> •
-    <a href="#screenshots">Screenshots</a> •
-    <a href="#roadmap">Roadmap</a>
-  </p>
 </div>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b" width="49%" alt="Light Theme" />
+  <img src="https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3" width="49%" alt="Dark Theme" />
+</p>
+<p align="center">
+  <em>Light and Dark themes with customizable colors</em>
+</p>
 
 ## 🚀 Current Features
 
@@ -51,59 +52,8 @@
 - 🔄 Similar Content Discovery: Find related articles
 - 📱 Responsive Layouts: Optimal viewing on any device
 
-## 🎨 Themes
-
-### Light Theme
-![Light Theme](https://github.com/user-attachments/assets/bf7212f7-711f-4e90-9fcf-0ee897f7184b)
-
-### Dark Theme
-![Dark Theme](https://github.com/user-attachments/assets/919f8d36-ff48-42b8-bb4c-7125b02e0fb3)
-
-## ⌨️ Keyboard Shortcuts
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl + T` | New Tab |
-| `Ctrl + W` | Close Tab |
-| `Ctrl + R` | Reload Page |
-| `F12` | Developer Tools |
-| `Alt + Left` | Go Back |
-| `Alt + Right` | Go Forward |
-| `Ctrl + L` | Focus Address Bar |
-| `Esc` | Stop Loading |
-
-## 🎯 Development Roadmap
-
-### Q2 2024
-- AI Integration for page analysis
-- Dynamic tab clustering
-- Extensions support framework
-- Immersion mode
-
-### Q3 2024
-- Smart content discovery
-- Advanced tab management
-- Custom themes marketplace
-- Performance optimizations
-
-### Q4 2024
-- AI assistant integration
-- Cloud sync
-- Mobile companion app
-- Security enhancements
-
-## 🚀 Quick Start
-
-## 🤝 Contributing
-We welcome contributions! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
 ## 🐛 Bug Reports
-Found a bug? Please report it on our [Issues page](https://github.com/yourusername/simple-browser/issues) or contact [@kalliyanchik](https://t.me/kalliyanchik)
-
-## 📝 License
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
-
-## 🌟 Support
-If you like this project, please give it a star ⭐️ and share it with your friends!
+Found a bug? Please contact [@kalliyanchik](https://t.me/kalliyanchik)
 
 ---
 
